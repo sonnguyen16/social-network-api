@@ -1,0 +1,10 @@
+@url=http://localhost:3000/v1/api
+POST {{url}}/signup
+Content-Type: application/json
+x-api-key: a212db135f7c29ac2a8346834d879ac01ba61f5894f9142f6c8a8f1977bb9b4e778605970e3c2154300ee471ecdb73feb1c772f353ab0fd46db8b792f8d97603
+
+{
+    "name": "Nguyen Van Son",
+    "email": "son@gmail.com",
+    "password": "123456"
+}
