@@ -1,5 +1,4 @@
 import apikeyModel from "../models/apikey.model.js"
-import crypto from 'crypto'
 
 class ApiKeyService {
     static findById = async (key) => {
