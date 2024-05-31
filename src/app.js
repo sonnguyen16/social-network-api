@@ -5,6 +5,7 @@ import compression from 'compression'
 import './dbs/init.mongodb.js'
 import router from './routes/index.js'
 import { checkOverload } from './helpers/check.connect.js'
+import { errorHandle, routeErrorHandle } from './utils/errorhandle.js'
 
 // checkOverload()
 
@@ -20,6 +21,10 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 // init router
-app.use('/v1/api', router);
+app.use('/v1/api', router)
+
+// handling error
+app.use(routeErrorHandle)
+app.use(errorHandle)
 
 export default app

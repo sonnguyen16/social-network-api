@@ -1,3 +1,4 @@
+import { ForbidenError } from "../core/error.response.js";
 import ApiKeyService from "../services/apikey.service.js";
 
 const HEADER = {
@@ -6,25 +7,13 @@ const HEADER = {
 }
 
 export const checkApiKey = async (req, res, next) => {
-    try {
-        const key = req.headers[HEADER.API_KEY]?.toString();
+    const key = req.headers[HEADER.API_KEY]?.toString();
 
-        if (!key) {
-            return res.status(401).json({
-                message: 'Forbiden Error'
-            })
-        }
+    if (!key) throw new ForbidenError('Forbiden')
 
-        const existKey = await ApiKeyService.findById(key)
+    const existKey = await ApiKeyService.findById(key)
 
-        if (!existKey) {
-            return res.status(401).json({
-                message: 'Forbiden Error'
-            })
-        }
+    if (!existKey) throw new ForbidenError('Forbiden')
 
-        return next()
-    } catch (error) {
-        return next(error)
-    }
+    return next()
 }
