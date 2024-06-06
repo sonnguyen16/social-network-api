@@ -25,3 +25,15 @@ export class ForbidenError extends ErrorResponse {
         super(message, statusCode)
     }
 }
+
+export class AuthFailureError extends ErrorResponse {
+    constructor(message = ReasonPhrases.UNAUTHORIZED, statusCode = StatusCodes.UNAUTHORIZED) {
+        super(message, statusCode)
+    }
+}
+
+export class NotFoundError extends ErrorResponse {
+    constructor(message = ReasonPhrases.NOT_FOUND, statusCode = StatusCodes.NOT_FOUND) {
+        super(message, statusCode)
+    }
+}

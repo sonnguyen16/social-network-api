@@ -5,7 +5,7 @@ import { asyncHandler } from "../utils/errorhandle.js"
 
 const router = Router()
 
-router.use(asyncHandler(checkApiKey))
+// router.use(asyncHandler(checkApiKey))
 router.use('/', authRouter)
 
 export default router
